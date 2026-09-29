@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maine Maula Se 💗</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #4a0b32 0%,
+                    #210016 45%,
+                    #050005 100%
+                );
+
+            color: white;
+            font-family: Arial, sans-serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           MAIN CONTENT
+        ========================= */
+
+        .box {
+            width: 90%;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 27px;
+            margin-bottom: 35px;
+
+            text-shadow:
+                0 0 8px #ff4f9a,
+                0 0 18px #ff1493,
+                0 0 30px #ff1493;
+        }
+
+        #lyrics {
+            font-size: 22px;
+            line-height: 1.7;
+            min-height: 100px;
+
+            text-shadow:
+                0 0 8px #ff69b4,
+                0 0 15px #ff1493,
+                0 0 25px #ff1493;
+        }
+
+        #startBtn {
+            margin-top: 30px;
+
+            padding: 12px 25px;
+
+            font-size: 17px;
+
+            border: none;
+            border-radius: 25px;
+
+            background: white;
+            color: #d6006d;
+
+            box-shadow:
+                0 0 10px white,
+                0 0 20px #ff1493;
+        }
+
+
+        /* =========================
+           PHOTO HEART
+        ========================= */
+
+        .photo-heart {
+
+            position: fixed;
+
+            top: 28px;
+            right: 35px;
+
+            width: 125px;
+            height: 125px;
+
+            z-index: 20;
+
+            opacity: 0;
+
+            animation:
+                heartAppear 7s linear forwards,
+                heartGlow 2s ease-in-out 7s infinite alternate;
+        }
+
+
+        .heart-svg {
+
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            left: 0;
+            top: 0;
+
+            overflow: visible;
+        }
+
+
+        /* PHOTO */
+
+        .heart-photo {
+
+            opacity: 0;
+
+            animation:
+                photoAppear 7s ease forwards;
+        }
+
+
+        /* HEART OUTLINE */
+
+        .heart-line {
+
+            fill: none;
+
+            stroke: #ff4fa3;
+
+            stroke-width: 5;
+
+            stroke-linecap: round;
+            stroke-linejoin: round;
+
+            stroke-dasharray: 500;
+            stroke-dashoffset: 500;
+
+            filter:
+                drop-shadow(0 0 5px #ff1493)
+                drop-shadow(0 0 12px #ff69b4);
+
+            animation:
+                drawHeart 7s linear forwards;
+        }
+
+
+        @keyframes drawHeart {
+
+            from {
+                stroke-dashoffset: 500;
+            }
+
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+
+        @keyframes photoAppear {
+
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+
+        @keyframes heartAppear {
+
+            0% {
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+
+        @keyframes heartGlow {
+
+            from {
+
+                filter:
+                    drop-shadow(
+                        0 0 5px #ff1493
+                    );
+            }
+
+            to {
+
+                filter:
+                    drop-shadow(
+                        0 0 15px #ff1493
+                    )
+                    drop-shadow(
+                        0 0 25px #ff69b4
+                    );
+            }
+        }
+
+
+        /* =========================
+           SPARKLES
+        ========================= */
+
+        .sparkle {
+
+            position: fixed;
+
+            color: white;
+
+            font-size: 20px;
+
+            pointer-events: none;
+
+            z-index: 5;
+
+            animation:
+                sparkleMove
+                1.4s
+                ease-out
+                forwards;
+
+            text-shadow:
+                0 0 5px white,
+                0 0 12px #ff69b4,
+                0 0 20px #ff1493;
+        }
+
+
+        @keyframes sparkleMove {
+
+            0% {
+
+                opacity: 1;
+
+                transform:
+                    scale(0.3)
+                    translateY(0);
+            }
+
+            50% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.3)
+                    translateY(-50px);
+            }
+
+            100% {
+
+                opacity: 0;
+
+                transform:
+                    scale(0.5)
+                    translateY(-130px);
+            }
+        }
+
+
+        /* =========================
+           FLOATING HEARTS
+        ========================= */
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -50px;
+
+            color: #ff4f9a;
+
+            font-size: 22px;
+
+            pointer-events: none;
+
+            z-index: 1;
+
+            opacity: 0.8;
+
+            animation:
+                heartUp
+                linear
+                forwards;
+
+            text-shadow:
+                0 0 8px #ff1493,
+                0 0 15px #ff69b4;
+        }
+
+
+        @keyframes heartUp {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    scale(0.7);
+
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.9;
+            }
+
+            100% {
+
+                transform:
+                    translateY(-110vh)
+                    scale(1.4);
+
+                opacity: 0;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         PHOTO HEART
+    ========================= -->
+
+    <div class="photo-heart">
+
+        <svg
+            class="heart-svg"
+            viewBox="0 0 145 145"
+        >
+
+            <defs>
+
+                <clipPath id="heartClip">
+
+                    <path
+                        d="
+                        M72 135
+                        C60 122 8 92 8 45
+                        C8 10 50 0 72 27
+                        C94 0 136 10 136 45
+                        C136 92 84 122 72 135
+                        Z
+                        "
+                    />
+
+                </clipPath>
+
+            </defs>
+
+
+            <!-- PHOTO -->
+
+            <image
+                class="heart-photo"
+                href="photo.jpg"
+
+                x="8"
+                y="8"
+
+                width="128"
+                height="128"
+
+                preserveAspectRatio="xMidYMid slice"
+
+                clip-path="url(#heartClip)"
+            />
+
+
+            <!-- HEART LINE -->
+
+            <path
+                class="heart-line"
+
+                d="
+                M72 135
+                C60 122 8 92 8 45
+                C8 10 50 0 72 27
+                C94 0 136 10 136 45
+                C136 92 84 122 72 135
+                Z
+                "
+            />
+
+        </svg>
+
+    </div>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================= -->
+
+    <div class="box">
+
+        <h1>
+            🎵 Maine Maula Se 💗
+        </h1>
+
+
+        <audio
+            id="song"
+            preload="auto"
+        >
+
+            <source
+                src="song.mp3"
+                type="audio/mpeg"
+            >
+
+        </audio>
+
+
+        <div id="lyrics"></div>
+
+
+        <button id="startBtn">
+            ▶ Start Song
+        </button>
+
+    </div>
+
+
+
+    <script>
+
+
+        /* =========================
+           ELEMENTS
+        ========================= */
+
+        const song =
+            document.getElementById("song");
+
+        const lyricsBox =
+            document.getElementById("lyrics");
+
+        const startBtn =
+            document.getElementById("startBtn");
+
+
+
+        /* =========================
+           LYRICS
+        ========================= */
+
+        const lyrics = [
+
+            "teri nazro ke sadke mein jaa waar dunga...",
+
+            "tu jo khede to apna jhan waar dunga...",
+
+            "meine mola se tri meri duniya h maangi...",
+
+            "tu jo likh de to usko hi haq maan lunga ..",
+
+            "✨❤️✨"
+
+        ];
+
+
+
+        /* =========================
+           TIMING
+        ========================= */
+
+        const timings = [
+
+            0,
+            4.5,
+            9,
+            14,
+            19
+
+        ];
+
+
+
+        let currentLine = -1;
+
+        let typingTimer = null;
+
+        let sparkleTimer = null;
+
+        let heartTimer = null;
+
+
+
+        /* =========================
+           TYPING
+        ========================= */
+
+        function typeLine(text) {
+
+            clearTimeout(typingTimer);
+
+            lyricsBox.innerHTML = "";
+
+            let i = 0;
+
+
+            function typing() {
+
+                if (i < text.length) {
+
+                    lyricsBox.innerHTML +=
+                        text.charAt(i);
+
+                    i++;
+
+
+                    typingTimer =
+                        setTimeout(
+                            typing,
+                            55
+                        );
+                }
+
+            }
+
+
+            typing();
+        }
+
+
+
+        /* =========================
+           SPARKLE
+        ========================= */
+
+        function createSparkle() {
+
+            const symbols = [
+
+                "✨",
+                "✦",
+                "💫",
+                "⭐"
+
+            ];
+
+
+            const sparkle =
+                document.createElement(
+                    "div"
+                );
+
+
+            sparkle.className =
+                "sparkle";
+
+
+            sparkle.innerHTML =
+                symbols[
+                    Math.floor(
+                        Math.random()
+                        *
+                        symbols.length
+                    )
+                ];
+
+
+            sparkle.style.left =
+                Math.random() * 100
+                + "vw";
+
+
+            sparkle.style.top =
+                (
+                    30 +
+                    Math.random() * 60
+                )
+                + "vh";
+
+
+            document.body.appendChild(
+                sparkle
+            );
+
+
+            setTimeout(
+                function() {
+
+                    sparkle.remove();
+
+                },
+                1400
+            );
+        }
+
+
+
+        function sparkleBurst() {
+
+            for (
+                let i = 0;
+                i < 5;
+                i++
+            ) {
+
+                setTimeout(
+                    createSparkle,
+                    i * 100
+                );
+
+            }
+        }
+
+
+
+        /* =========================
+           BACKGROUND HEARTS
+        ========================= */
+
+        function createHeart() {
+
+            const heart =
+                document.createElement(
+                    "div"
+                );
+
+
+            heart.className =
+                "heart";
+
+
+            heart.innerHTML =
+                Math.random() > 0.5
+                ? "💗"
+                : "💕";
+
+
+            heart.style.left =
+                Math.random() * 100
+                + "vw";
+
+
+            heart.style.fontSize =
+                (
+                    16 +
+                    Math.random() * 18
+                )
+                + "px";
+
+
+            heart.style.animationDuration =
+                (
+                    4 +
+                    Math.random() * 4
+                )
+                + "s";
+
+
+            document.body.appendChild(
+                heart
+            );
+
+
+            setTimeout(
+                function() {
+
+                    heart.remove();
+
+                },
+                8000
+            );
+        }
+
+
+
+        /* =========================
+           START EFFECTS
+        ========================= */
+
+        function startEffects() {
+
+            sparkleBurst();
+
+
+            sparkleTimer =
+                setInterval(
+                    sparkleBurst,
+                    1200
+                );
+
+
+            heartTimer =
+                setInterval(
+                    createHeart,
+                    700
+                );
+        }
+
+
+
+        /* =========================
+           STOP EFFECTS
+        ========================= */
+
+        function stopEffects() {
+
+            clearInterval(
+                sparkleTimer
+            );
+
+            clearInterval(
+                heartTimer
+            );
+        }
+
+
+
+        /* =========================
+           SONG + LYRICS
+        ========================= */
+
+        song.addEventListener(
+            "timeupdate",
+            function() {
+
+                const time =
+                    song.currentTime;
+
+
+                for (
+                    let i =
+                        timings.length - 1;
+
+                    i >= 0;
+
+                    i--
+                ) {
+
+                    if (
+                        time >= timings[i]
+                    ) {
+
+                        if (
+                            currentLine !== i
+                        ) {
+
+                            currentLine = i;
+
+                            typeLine(
+                                lyrics[i]
+                            );
+                        }
+
+                        break;
+                    }
+                }
+
+            }
+        );
+
+
+
+        /* =========================
+           SONG END
+        ========================= */
+
+        song.addEventListener(
+            "ended",
+            function() {
+
+                clearTimeout(
+                    typingTimer
+                );
+
+
+                stopEffects();
+
+
+                lyricsBox.innerHTML =
+                    "";
+
+
+                currentLine =
+                    lyrics.length;
+
+
+                startBtn.style.display =
+                    "block";
+
+
+                startBtn.innerHTML =
+                    "▶ Play Again";
+
+            }
+        );
+
+
+
+        /* =========================
+           START BUTTON
+        ========================= */
+
+        startBtn.addEventListener(
+            "click",
+            function() {
+
+                song.currentTime = 0;
+
+                currentLine = -1;
+
+                lyricsBox.innerHTML =
+                    "";
+
+
+                song.play();
+
+
+                startEffects();
+
+
+                startBtn.style.display =
+                    "none";
+
+            }
+        );
+
+
+
+        /* =========================
+           AUTO PLAY
+        ========================= */
+
+        window.addEventListener(
+            "load",
+            function() {
+
+                song.play()
+
+                .then(
+                    function() {
+
+                        startBtn.style.display =
+                            "none";
+
+
+                        startEffects();
+
+                    }
+                )
+
+                .catch(
+                    function() {
+
+                        startBtn.style.display =
+                            "block";
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
